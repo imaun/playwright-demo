@@ -19,8 +19,8 @@ It’s intended as a learning project and reference for setting up automated bro
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/imaun/playwright-demo
+cd playwright-demo
 ```
 
 2. Install dependencies:
