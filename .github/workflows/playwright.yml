@@ -27,6 +27,12 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      - name: Start HTTP server
+        run: npx http-server . -p 8080 &
+
+      - name: Wait for server to start
+        run: npx wait-on http://127.0.0.1:8080/index.html
+
       - name: Run Playwright tests
         run: npx playwright test
 
