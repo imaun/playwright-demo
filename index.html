@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Form Example</title>
+</head>
+<body>
+    <form id="priceForm">
+        <label>
+            Price Category:
+            <select id="priceCategory">
+                <option value="">--Select--</option>
+                <option value="basic">Basic</option>
+                <option value="premium">Premium</option>
+            </select>
+        </label>
+        <br><br>
+        <label>
+            Item Code:
+            <input type="text" id="itemCode" />
+        </label>
+        <br><br>
+        <label>
+            Adjustment Factor:
+            <input type="number" id="adjustmentFactor" step="0.01" />
+        </label>
+    </form>
+
+    <script src="scripts/simple-form.js"></script>
+</body>
+</html>
