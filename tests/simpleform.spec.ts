@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Simple Form', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('http://127.0.0.1:8080/index.html');
+        await page.goto('http://127.0.0.1:8080/simple-form.html');
     });
 
     test('selecting basic sets correct itemCode and adjustmentFactor', async ({ page }) => {

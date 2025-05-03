@@ -23,3 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form submitted:', data);
+    
+    const priceCategory = document.getElementById('priceCategory').value;
+    const itemCode = document.getElementById('itemCode').value;
+    const adjustmentFactor = document.getElementById('adjustmentFactor').value;
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+
+    if (!priceCategory || !itemCode || !adjustmentFactor) {
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+    } else {
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'block';
+    }
+});
