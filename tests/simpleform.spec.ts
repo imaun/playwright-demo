@@ -27,4 +27,27 @@ test.describe('Simple Form', () => {
         await expect(page.locator('#itemCode')).toHaveValue('');
         await expect(page.locator('#adjustmentFactor')).toHaveValue('');
     });
+
+    test('shows error when submitting incomplete form', async ({ page }) => {
+        await page.click('button[type=submit]');
+        await expect(page.locator('#errorMessage')).toBeVisible();
+        await expect(page.locator('#successMessage')).toBeHidden();
+    });
+
+    test('submits form successfully with valid data', async ({ page }) => {
+        await page.selectOption('#priceCategory', 'basic');
+        await page.fill('#itemCode', 'B100');
+        await page.fill('#adjustmentFactor', '1.0');
+        await page.click('button[type=submit]');
+        await expect(page.locator('#errorMessage')).toBeHidden();
+        await expect(page.locator('#successMessage')).toBeVisible();
+    });
+
+    test('takes screenshot after successful submission', async ({ page }) => {
+        await page.selectOption('#priceCategory', 'premium');
+        await page.fill('#itemCode', 'P200');
+        await page.fill('#adjustmentFactor', '1.5');
+        await page.click('button[type=submit]');
+        await page.screenshot({ path: 'test-results/success-screenshot.png' });
+    });
 });
